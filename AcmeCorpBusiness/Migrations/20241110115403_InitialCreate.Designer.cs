@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AcmeCorpBusiness.Migrations
 {
     [DbContext(typeof(AcmeCorpDbContext))]
-    [Migration("20241109112423_InitialCreate")]
+    [Migration("20241110115403_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -32,7 +32,13 @@ namespace AcmeCorpBusiness.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("MailingAddress")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PhoneNumber")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -50,6 +56,9 @@ namespace AcmeCorpBusiness.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("OrderDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ProductName")
                         .HasColumnType("TEXT");
 
                     b.Property<double>("TotalAmount")

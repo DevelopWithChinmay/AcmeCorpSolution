@@ -18,8 +18,10 @@ namespace AcmeCorpBusiness.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: true),
+                    DateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: true),
-                    DateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    PhoneNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    MailingAddress = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -32,6 +34,7 @@ namespace AcmeCorpBusiness.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    ProductName = table.Column<string>(type: "TEXT", nullable: true),
                     OrderDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     TotalAmount = table.Column<double>(type: "REAL", nullable: false),
                     CustomerId = table.Column<int>(type: "INTEGER", nullable: false)
