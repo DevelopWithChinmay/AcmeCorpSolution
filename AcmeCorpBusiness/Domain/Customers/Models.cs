@@ -1,9 +1,8 @@
 ﻿using AcmeCorpBusiness.Domain.Contacts;
-using AcmeCorpBusiness.Domain.Orders;
 
 namespace AcmeCorpBusiness.Domain.Customers
 {
-    public class CustomerFacade
+    public record CustomerFacade
     {
         public int Id { get; set; }
         public string? Name { get; set; }

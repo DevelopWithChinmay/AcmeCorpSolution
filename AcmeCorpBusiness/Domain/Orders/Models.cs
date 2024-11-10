@@ -1,8 +1,8 @@
 ﻿namespace AcmeCorpBusiness.Domain.Orders
 {
-    public class OrderFacade
+    public record OrderFacade
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string? ProductName { get; set; }
         public DateTime OrderDate { get; set; }
         public double TotalAmount { get; set; }

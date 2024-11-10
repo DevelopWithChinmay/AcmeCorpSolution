@@ -1,15 +1,11 @@
-using AcmeCorpBusiness.Domain.Contacts;
-using AcmeCorpBusiness.Domain.Customers;
+﻿using AcmeCorpBusiness.Domain.Customers;
 using AcmeCorpBusiness.Entities;
 using AcmeCorpBusiness.Exceptions;
 using AcmeCorpBusiness.Helpers;
-using Castle.Core.Resource;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
-using Moq;
-using NUnit.Framework;
 
-namespace AcmeCorpBusinessTest
+namespace AcmeCorpBusinessTest.Domain.Customers
 {
     [TestFixture]
     public class CustomerReadHandlerTests
@@ -22,13 +18,13 @@ namespace AcmeCorpBusinessTest
         {
             MappingHelper.Configure();
 
+            var databaseName = Guid.NewGuid().ToString();
             var options = new DbContextOptionsBuilder<AcmeCorpDbContext>()
-                .UseInMemoryDatabase(databaseName: "AcmeCorpDb")
+                .UseInMemoryDatabase(databaseName: $"AcmeCorpDb_{databaseName}")
                 .Options;
 
             context = new AcmeCorpDbContext(options);
 
-            // Seed initial data
             context.Customers.AddRange(new List<Customer>
             {
                 new() { Id = 1, Name = "Chinmay 1", Email = "chinmay1@xyz.com" },
