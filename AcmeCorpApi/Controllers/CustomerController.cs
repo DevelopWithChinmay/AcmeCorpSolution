@@ -9,9 +9,10 @@ namespace AcmeCorpApi.Controllers
     public class CustomersController : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CustomerFacade>>> GetCustomers([FromServices] CustomerReadHandler handler)
+        public async Task<IEnumerable<CustomerFacade>> GetCustomers([FromServices] CustomerReadHandler handler)
         {
-            return Ok(await handler.QueryAsync());
+            var list = await handler.QueryAsync();
+            return list;
         }
 
         [HttpGet("{id}")]
